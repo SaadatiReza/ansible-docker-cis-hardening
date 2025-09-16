@@ -19,3 +19,30 @@
   ansible.builtin.debug:
     msg: "Members of the docker group: {{ docker_group.stdout }}"
   when: docker_group.stdout != ""
+
+
+- name: Ensure auditing is configured for the {{ item }}
+  ansible.builtin.lineinfile: 
+    path: /etc/audit/audit.rules
+    line: "{{ item }}"
+    state: present
+  loop: 
+   - -w /usr/bin/dockerd -k docker
+   - -w /run/containerd -k docker
+   - -a exit,always -F path=/run/containerd -F perm=war -k docker
+   - -a exit,always -F path=/var/lib/docker -F perm=war -k docker
+   - -a exit,never -F dir=/var/lib/docker/volumes
+   - -a exit,never -F dir=/var/lib/docker/overlay2
+   - -w /etc/docker -k docker
+   - -w /usr/lib/systemd/system/docker.service -k docker
+   - -w /run/containerd/containerd.sock -k docker
+   - -w /var/run/docker.sock -k docker
+   - -w /etc/default/docker -k docker
+   - -w /etc/docker/daemon.json -k docker
+   - -w /etc/containerd/config.toml -k docker
+   - -w /etc/sysconfig/docker -k docker
+   - -w /usr/bin/containerd -k docker
+   - -w /usr/bin/containerd-shim -k docker
+   - -w /usr/bin/containerd-shim-runc-v1 -k docker
+   - -w /usr/bin/containerd-shim-runc-v2 -k docker
+   - -w /usr/bin/runc -k docker
