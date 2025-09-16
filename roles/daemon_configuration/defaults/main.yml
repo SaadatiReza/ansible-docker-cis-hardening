@@ -35,6 +35,8 @@ docker_config:
   storage_driver:
     enable: true
     name: "overlay2"
+
+  # 2.9 Ensure the default ulimit is configured appropriately (Manual)
   default_ulimits:
     enable: true
     nofile:
@@ -45,4 +47,8 @@ docker_config:
       name: nproc
       hard: 2048
       soft: 1024
+  # 2.11 Ensure the default cgroup usage has been confirmed    (Manual)
+  cgroup_parent:
+    enable: true
+    name: "omidpay.slice"
   

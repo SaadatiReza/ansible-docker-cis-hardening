@@ -10,3 +10,7 @@ default bridge (Manual)
   [x] 2.7 Ensure devicemapper storage driver is not used (Manual)
   [x] 2.8 Ensure TLS authentication for Docker daemon is configured (Manual) --> 
   By default, the Docker daemon binds to a non-networked Unix socket and runs with root privileges
+  [x] 2.9 Ensure the default ulimit is configured appropriately (Manual)
+  []  2.10 Enable user namespace support (Manual)
+  [x] 2.11 Ensure the default cgroup usage has been confirmed (Manual)
+

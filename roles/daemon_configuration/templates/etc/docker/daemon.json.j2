@@ -46,6 +46,9 @@
     }
     },
     {% endif %}
+    {% if docker_config.cgroup_parent.enable == true %}
+    "cgroup-parent":"{{ docker_config.cgroup_parent.name }}",
+    {% endif %}
     {% if docker_config.live_restore.enable == true %}
     "live-restore": true
     {% endif %}
