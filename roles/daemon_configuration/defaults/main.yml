@@ -1,3 +1,28 @@
-#SPDX-License-Identifier: MIT-0
----
-# defaults file for roles/daemon_configuration
+DOCKER_CONFIG:
+# 2.2 Ensure network traffic is restricted between containers on the default bridge (Manual) 
+docker_config:
+  proxy:
+    enable: false
+    http_url: "http://127.0.0.1:8123"
+    https_url: "http://127.0.0.1:8123"
+    no_proxy_url: "docker.arvancloud.ir,127.0.0.0/8"
+  logging:
+    enable: true
+    # 2.3 Ensure the logging level is set to 'info' (Manual)
+    level: "info"
+    labels: "{{ inventory_hostname }}"
+    max_file: 5
+    max_size: 100M
+  mirror_registry:
+    enable: true
+    urls: "https://docker.arvancloud.ir"
+  insecure_registry:
+    enable: true
+    urls: "https://test.mecan.ir"
+  live_restore:
+    enable: true
+  experimental:
+    enable: true
+  # 2.2 Ensure network traffic is restricted between containers on the default bridge (Manual) 
+  icc:
+    enable: false

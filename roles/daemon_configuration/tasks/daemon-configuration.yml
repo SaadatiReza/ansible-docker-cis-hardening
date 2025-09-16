@@ -1,0 +1,13 @@
+--- 
+- name: Render daemon.json template to string
+  ansible.builtin.template:
+    src: etc/docker/daemon.json.j2
+    dest: /etc/docker/daemon.json
+  tags: daemon_configuration
+  notify: Restart Docker
+
+# - name: Debug rendered daemon.json
+#   ansible.builtin.debug:
+#     var: rendered_daemon_json.stdout
+#   tags: daemon_configuration
+

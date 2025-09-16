@@ -1,3 +1,5 @@
-#SPDX-License-Identifier: MIT-0
----
-# tasks file for roles/daemon_configuration
+
+--- 
+- name: Include Daemon-configuration tasks
+  ansible.builtin.include_tasks: daemon-configuration.yml
+  tags: daemon_configuration
