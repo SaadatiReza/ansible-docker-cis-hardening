@@ -43,6 +43,6 @@ docker_config:
       soft: 10000
     nproc:
       name: nproc
-      hard: 500
-      soft: 500
+      hard: 2048
+      soft: 1024
   
