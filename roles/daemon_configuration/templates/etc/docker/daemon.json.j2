@@ -26,6 +26,12 @@
     {% if docker_config.icc.enable == false %}
     "icc": false,
     {% endif %}
+    {% if docker_config.iptables.enable == true %}
+    "iptables": true,
+    {% endif %}
+    {% if docker_config.storage_driver.enable == true %}
+    "storage-driver": "{{ docker_config.storage_driver.name }}",
+    {% endif %}
     {% if docker_config.live_restore.enable == true %}
     "live-restore": true
     {% endif %}
