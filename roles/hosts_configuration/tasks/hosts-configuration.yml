@@ -1,0 +1,8 @@
+---
+- name: Ensure a Separate partition for containers has been created
+  ansible.builtin.command: grep '/var/lib/docker\s' /proc/mounts
+  register: containers_partition
+
+- name: Show the output of the partition check
+  ansible.builtin.debug:
+    var: containers_partition.stdout_lines
