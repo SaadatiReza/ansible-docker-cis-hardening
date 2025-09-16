@@ -20,8 +20,12 @@
     msg: "Members of the docker group: {{ docker_group.stdout }}"
   when: docker_group.stdout != ""
 
+- name: Ensure audit is installed
+  ansible.builtin.package:
+    name: audit
+    state: present
 
-- name: Ensure auditing is configured for the {{ item }}
+- name: Ensure auditing is configured for the 1.1.3 to 1.1.18
   ansible.builtin.lineinfile: 
     path: /etc/audit/audit.rules
     line: "{{ item }}"
