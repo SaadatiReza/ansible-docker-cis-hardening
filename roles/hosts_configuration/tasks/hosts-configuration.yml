@@ -4,14 +4,18 @@
   register: containers_partition
   ignore_errors: yes
 
-# - name: Show the output of the partition check
-#   ansible.builtin.debug:
-#     var: containers_partition.stdout_lines
-
 - name: Partition for containers has NOT been configured
   ansible.builtin.debug:
     msg: "Separate Partition '/var/lib/docker' for containers has NOT been configured."
   when: containers_partition.stdout_lines | length == 0
 
 
+- name: Ensure only trusted users are allowed to control Docker Daemon
+  ansible.builtin.command: getent group docker
+  register: docker_group
+  ignore_errors: yes
 
+- name: Show the members of the docker group
+  ansible.builtin.debug:
+    msg: "Members of the docker group: {{ docker_group.stdout }}"
+  when: docker_group.stdout != ""
