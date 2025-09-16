@@ -1,8 +1,17 @@
 ---
 - name: Ensure a Separate partition for containers has been created
-  ansible.builtin.command: grep '/var/lib/docker\s' /proc/mounts
+  ansible.builtin.command: grep '/var/lib/docker' /proc/mounts
   register: containers_partition
+  ignore_errors: yes
 
-- name: Show the output of the partition check
+# - name: Show the output of the partition check
+#   ansible.builtin.debug:
+#     var: containers_partition.stdout_lines
+
+- name: Partition for containers has NOT been configured
   ansible.builtin.debug:
-    var: containers_partition.stdout_lines
+    msg: "Separate Partition '/var/lib/docker' for containers has NOT been configured."
+  when: containers_partition.stdout_lines | length == 0
+
+
+
