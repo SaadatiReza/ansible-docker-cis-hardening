@@ -1,3 +1,6 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # defaults file for roles/hosts_configuration
+
+
+docker_latest_version: 29.4.0

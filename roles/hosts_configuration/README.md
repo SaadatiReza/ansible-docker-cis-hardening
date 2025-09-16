@@ -1,7 +1,7 @@
  ## 1.1 Linux Hosts Specific Configuration
 
-    [x] 1.1.1 Ensure a separate partition for containers has been created
-    [x] 1.1.2 Ensure only trusted users are allowed to control Docker daemon
+    [] 1.1.1 Ensure a separate partition for containers has been created
+    [] 1.1.2 Ensure only trusted users are allowed to control Docker daemon
     [x] 1.1.3 Ensure auditing is configured for the Docker daemon
     [x] 1.1.4 Ensure auditing is configured for Docker files and directories - /run/containerd
     [x] 1.1.5 Ensure auditing is configured for Docker files and directories - /var/lib/docker (Manual)
@@ -18,3 +18,10 @@
     [x] 1.1.16 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd-shim-runc-v1 (Manual)
     [x] 1.1.17 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd-shim-runc-v2 (Automated)
     [x] 1.1.18 Ensure auditing is configured for Docker files and directories - /usr/bin/runc (Automated)
+
+## 1.2 General Configuration
+   [] 1.2.1 Ensure the container host has been Hardened (Manual)
+   [x] 1.2.2 Ensure that the version of Docker is up to date (Manual)
+
+
+
