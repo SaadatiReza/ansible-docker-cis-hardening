@@ -32,6 +32,20 @@
     {% if docker_config.storage_driver.enable == true %}
     "storage-driver": "{{ docker_config.storage_driver.name }}",
     {% endif %}
+    {% if docker_config.default_ulimits.enable == true %}
+    "default-ulimits": {
+    "nofile": {
+      "Name": "{{ docker_config.default_ulimits.nofile.name }}",
+      "Hard": {{ docker_config.default_ulimits.nofile.hard }},
+      "Soft": {{ docker_config.default_ulimits.nofile.soft }}
+    },
+    "nproc": {
+      "Name": "{{ docker_config.default_ulimits.nproc.name }}",
+      "Hard": {{ docker_config.default_ulimits.nproc.hard }},
+      "Soft": {{ docker_config.default_ulimits.nproc.soft }}
+    }
+    },
+    {% endif %}
     {% if docker_config.live_restore.enable == true %}
     "live-restore": true
     {% endif %}

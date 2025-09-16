@@ -35,3 +35,14 @@ docker_config:
   storage_driver:
     enable: true
     name: "overlay2"
+  default_ulimits:
+    enable: true
+    nofile:
+      name: nofile
+      hard: 10000
+      soft: 10000
+    nproc:
+      name: nproc
+      hard: 500
+      soft: 500
+  
