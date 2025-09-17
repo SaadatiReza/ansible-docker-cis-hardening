@@ -6,6 +6,9 @@ docker_config:
     http_url: "http://127.0.0.1:8123"
     https_url: "http://127.0.0.1:8123"
     no_proxy_url: "docker.arvancloud.ir,127.0.0.0/8"
+  log_driver:
+    enable: true
+    name: "syslog"
   logging:
     enable: true
     # 2.3 Ensure the logging level is set to 'info' (Manual)
