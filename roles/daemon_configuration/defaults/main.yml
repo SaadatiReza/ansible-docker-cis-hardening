@@ -40,9 +40,10 @@ docker_config:
   #2.16 Ensure live restore is enabled (Manual)
   live_restore:
     enable: true
-  
+  # 2.19 Ensure that experimental features are not implemented in production (Manual)
   experimental:
-    enable: true
+    enable: false
+    
   # 2.2 Ensure network traffic is restricted between containers on the default bridge (Manual) 
   icc:
     enable: false

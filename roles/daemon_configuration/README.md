@@ -23,4 +23,8 @@ enabled (Manual)
 privileges (Manual)
   [x] 2.16 Ensure live restore is enabled (Manual)
   [x] 2.17 Ensure Userland Proxy is Disabled (Manual)
+  [ ] 2.18 Ensure that a daemon-wide custom seccomp profile is applied if appropriate (Manual)
+  [x] 2.19 Ensure that experimental features are not implemented in production (Manual)
+
+
 

@@ -28,8 +28,8 @@
     {% if docker_config.insecure_registry.enable == true %}
     "insecure-registries": ["{{ docker_config.insecure_registry.urls }}"],
     {% endif %}
-    {% if docker_config.experimental.enable == true %}
-    "experimental": true,
+    {% if docker_config.experimental.enable == false %}
+    "experimental": false,
     {% endif %}
     {% if docker_config.icc.enable == false %}
     "icc": false,
