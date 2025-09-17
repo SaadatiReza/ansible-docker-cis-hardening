@@ -19,6 +19,9 @@
     {% if docker_config.log_level.enable == true %}
     "log-level": "{{ docker_config.log_level.level }}",
     {% endif %}
+    {% if docker_config.no_new_privileges.enable == true %}
+    "no-new-privileges": true ,
+    {% endif %}
     {% if docker_config.mirror_registry.enable == true %}
     "registry-mirrors": ["{{ docker_config.mirror_registry.urls }}"],
     {% endif %}

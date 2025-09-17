@@ -23,6 +23,10 @@ docker_config:
   log_level:
     enable: true
     level: "info"
+  
+  # 2.15 Ensure containers are restricted from acquiring new privileges (Manual)
+  no_new_privileges:
+    enable: true
 
 
   mirror_registry:

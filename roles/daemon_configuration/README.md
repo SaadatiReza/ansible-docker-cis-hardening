@@ -13,4 +13,13 @@ default bridge (Manual)
   [x] 2.9 Ensure the default ulimit is configured appropriately (Manual)
   []  2.10 Enable user namespace support (Manual)
   [x] 2.11 Ensure the default cgroup usage has been confirmed (Manual)
+  [] 2.12 Ensure base device size is not changed until needed (Manual)
+      Remediation: Do not set --storage-opt dm.basesize until needed.
+  [] 2.13 Ensure that authorization for Docker client commands is
+enabled (Manual)
+  [x] 2.14 Ensure centralized and remote logging is configured
+(Manual)
+  [x] 2.15 Ensure containers are restricted from acquiring new
+privileges (Manual)
+
 
