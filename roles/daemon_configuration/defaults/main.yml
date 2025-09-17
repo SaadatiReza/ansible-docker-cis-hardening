@@ -36,8 +36,11 @@ docker_config:
   insecure_registry:
     enable: false
     urls: "https://test.mecan.ir"
+
+  #2.16 Ensure live restore is enabled (Manual)
   live_restore:
     enable: true
+  
   experimental:
     enable: true
   # 2.2 Ensure network traffic is restricted between containers on the default bridge (Manual) 
