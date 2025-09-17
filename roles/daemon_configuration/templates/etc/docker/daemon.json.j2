@@ -37,6 +37,9 @@
     {% if docker_config.iptables.enable == true %}
     "iptables": true,
     {% endif %}
+    {% if docker_config.user_land_proxy.enable == false %}
+    "userland-proxy": false,
+    {% endif %}
     {% if docker_config.storage_driver.enable == true %}
     "storage-driver": "{{ docker_config.storage_driver.name }}",
     {% endif %}

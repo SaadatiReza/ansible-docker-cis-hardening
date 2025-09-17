@@ -22,4 +22,5 @@ enabled (Manual)
   [x] 2.15 Ensure containers are restricted from acquiring new
 privileges (Manual)
   [x] 2.16 Ensure live restore is enabled (Manual)
+  [x] 2.17 Ensure Userland Proxy is Disabled (Manual)
 
