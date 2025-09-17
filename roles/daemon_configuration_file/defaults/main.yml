@@ -14,3 +14,16 @@ file_permissions:
     owner: root
     group: root
     mode: 'u=rw,g=r,o=r' #'0644'
+# 3.5 Ensure that the /etc/docker directory ownership is set to root:root (Automated)
+# 3.6 Ensure that /etc/docker directory permissions are set to 755 or more restrictively (Automated)
+  - path: /etc/docker
+    owner: root
+    group: root
+    mode: 'u=rwx,g=rx,o=rx' #'0755'
+
+# 3.7 Ensure that registry certificate file ownership is set to root:root (Manual)
+# 3.8 Ensure that registry certificate file permissions are set to 444 or more restrictively (Manual)  
+  - path: /etc/docker/certs.d/
+    owner: root
+    group: root
+    mode: 'u=r,g=r,o=r' #'0444'
