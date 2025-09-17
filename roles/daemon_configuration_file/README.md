@@ -15,7 +15,15 @@
  [ ] 3.13 Ensure that the Docker server certificate key file ownership is set to root:root (Manual)
  [ ] 3.14 Ensure that the Docker server certificate key file permissions are set to 400 (Manual)
  [x] 3.15 Ensure that the Docker socket file ownership is set to root:docker (Automated)
-
+ [x] 3.16 Ensure that the Docker socket file permissions are set to 660 or more restrictively (Automated)
+ [x] 3.17 Ensure that the daemon.json file ownership is set to root:root (Manual)
+ [x] 3.18 Ensure that daemon.json file permissions are set to 644 or more restrictive (Manual)
+ [x] 3.19 Ensure that the /etc/default/docker file ownership is set to root:root (Manual)
+ [x] 3.19 Ensure that the /etc/default/docker file ownership is set to root:root (Manual)
+ [x] 3.20 Ensure that the /etc/default/docker file permissions are set to 644 or more restrictive (Manual)
+ [x] 3.21 Ensure that the /etc/sysconfig/docker file permissions are set to 644 or more restrictively (Manual)
+ [x] 3.23 Ensure that the Containerd socket file ownership is set to root:root (Automated)
+ [x] 3.24 Ensure that the Containerd socket file permissions are set to 660 or more restrictivel (Automated)
 
 
 

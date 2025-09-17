@@ -55,3 +55,10 @@ file_permissions:
     owner: root
     group: root
     mode: 'u=rw,g=r,o=r' #'0644'
+  
+# 3.23 Ensure that the Containerd socket file ownership is set to root:root (Automated)
+# 3.24 Ensure that the Containerd socket file permissions are set to 660 or more restrictively (Automated)
+  - path: /run/containerd/containerd.sock
+    owner: root
+    group: root
+    mode: 'u=rw,g=rw' #'0660'
