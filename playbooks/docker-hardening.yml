@@ -7,3 +7,4 @@
   roles:
     - hosts_configuration
     - daemon_configuration
+    - daemon_configuration_file

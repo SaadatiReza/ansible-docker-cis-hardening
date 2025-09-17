@@ -1,0 +1,15 @@
+---
+- name: Check if the "{{ item.path }}" file exists
+  ansible.builtin.stat:
+    path: "{{ item.path }}"
+  register: file_exists
+  tags: file_permissions
+
+- name: Set permissions of file "{{ item.path }}"
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  when: file_exists.stat.exists
+  tags: file_permissions

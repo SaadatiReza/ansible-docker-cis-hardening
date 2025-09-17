@@ -1,0 +1,16 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for roles/daemon_configuration_file
+file_permissions:
+#3.1 Ensure that the docker.service file ownership is set to root:root (Automated)
+#3.2 Ensure that docker.service file permissions are appropriately set (Automated)
+  - path: /usr/lib/systemd/system/docker.service
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r' #'0644'
+#3.3 Ensure that docker.socket file ownership is set to root:root (Automated)
+#3.4 Ensure that docker.socket file permissions are set to 644 or more restrictive (Automated)
+  - path: /usr/lib/systemd/system/docker.socket
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r' #'0644'

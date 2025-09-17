@@ -1,0 +1,7 @@
+---
+- name: Include file_permission tasks
+  include_tasks: file_permission.yml
+  loop: "{{ file_permissions }}"
+  loop_control:
+    loop_var: item
+  tags: file_permissions
