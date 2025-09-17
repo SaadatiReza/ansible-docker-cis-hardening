@@ -50,6 +50,7 @@
    - -w /usr/bin/containerd-shim-runc-v1 -k docker
    - -w /usr/bin/containerd-shim-runc-v2 -k docker
    - -w /usr/bin/runc -k docker
+  notify: Restart auditd
 
 - name: Ensure that the version of Docker is up to date
   ansible.builtin.shell: docker --version | cut -d ' ' -f3 | sed 's/,//'
