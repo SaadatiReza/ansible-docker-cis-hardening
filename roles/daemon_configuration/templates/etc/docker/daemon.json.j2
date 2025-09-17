@@ -9,13 +9,15 @@
     {% if docker_config.log_driver.enable == true %}
     "log-driver": "{{ docker_config.log_driver.name }}",
     {% endif %}
-    {% if docker_config.logging.enable == true %}
+    {% if docker_config.log_opt.enable == true %}
     "log-opts": {
-        "labels": "{{ docker_config.logging.labels }}",
-        "max-file": "{{ docker_config.logging.max_file }}",
-        "max-size": "{{ docker_config.logging.max_size }}"
+        "labels": "{{ docker_config.log_opt.labels }}",
+        "max-file": "{{ docker_config.log_opt.max_file }}",
+        "max-size": "{{ docker_config.log_opt.max_size }}"
         },
-    "log-level": "{{ docker_config.logging.level }}",
+    {% endif %}
+    {% if docker_config.log_level.enable == true %}
+    "log-level": "{{ docker_config.log_level.level }}",
     {% endif %}
     {% if docker_config.mirror_registry.enable == true %}
     "registry-mirrors": ["{{ docker_config.mirror_registry.urls }}"],
