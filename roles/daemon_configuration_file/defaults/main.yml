@@ -29,8 +29,29 @@ file_permissions:
     mode: 'u=r,g=r,o=r' #'0444'
 
 # 3.15 Ensure that the Docker socket file ownership is set to root:docker (Automated)
-
+# 3.16 Ensure that the Docker socket file permissions are set to 660 or more restrictively (Automated)
   - path: /var/run/docker.sock
     owner: root
     group: docker
     mode: 'u=rw,g=rw' #'0660'
+
+# 3.17 Ensure that the daemon.json file ownership is set to root:root (Manual)
+# 3.18 Ensure that daemon.json file permissions are set to 644 or more restrictive (Manual)
+  - path: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r' #'0644'
+
+# 3.19 Ensure that the /etc/default/docker file ownership is set to root:root (Manual)
+# 3.20 Ensure that the /etc/default/docker file permissions are set to 644 or more restrictive (Manual)
+  - path: /etc/default/docker
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r' #'0644'
+
+# 3.21 Ensure that the /etc/sysconfig/docker file permissions are set to 644 or more restrictively (Manual)
+# 3.22 Ensure that the /etc/sysconfig/docker file ownership is set to root:root (Manual)
+  - path: /etc/sysconfig/docker
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r' #'0644'
