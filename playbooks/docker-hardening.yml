@@ -5,6 +5,6 @@
   gather_facts: true
 
   roles:
-    - hosts_configuration
-    - daemon_configuration
-    - daemon_configuration_file
+    - 01_host_configuration
+    - 02_daemon_configuration
+    - 03_daemon_configuration_file
