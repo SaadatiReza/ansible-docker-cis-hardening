@@ -6,3 +6,7 @@
 - name: include enable content trust for docker CIS 4.5
   include_tasks: enable_content_trust.yml
   tags: enable_content_trust
+
+- name: include check healthcheck instruction in container images CIS 4.6
+  include_tasks: check_healthcheck.yml
+  tags: check_healthcheck

@@ -8,3 +8,5 @@ container (Manual)
  [ ] 4.4 Ensure images are scanned and rebuilt to include security
 patches (Manual)
  [x] 4.5 Ensure Content trust for Docker is Enabled (Manual)
+ [x] 4.6 Ensure that HEALTHCHECK instructions have been added to
+container images (Manual) -- this task just collect the information about containers with no HEALTHCHECK
