@@ -1,3 +1,4 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for roles/04_container_images_and_file_configuration
+- name: include user for containers CIS 4.1
+  include_tasks: user_for_containers.yml
+  tags: user_for_containers
