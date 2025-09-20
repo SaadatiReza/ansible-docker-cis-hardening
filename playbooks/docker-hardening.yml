@@ -7,4 +7,5 @@
   roles:
     - 01_host_configuration
     - 02_daemon_configuration
-    - 03_daemon_configuration_file
+    - 03_daemon_configuration_file_permission
+    - 04_container_images_and_file_configuration

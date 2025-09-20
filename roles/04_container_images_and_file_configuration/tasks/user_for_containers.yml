@@ -1,0 +1,21 @@
+#4.1 Ensure that a user for the container has been created
+- name: Find containers running as root user (CIS 4.1)
+  shell: |
+    {% raw %}
+    docker ps --format '{{.ID}} {{.Names}}' | while read id name; do
+      uid=$(docker exec $id sh -c "grep '^Uid:' /proc/1/status | awk '{print \$3}'")
+      if [ "$uid" = "0" ]; then
+        echo "$name"
+      fi
+    done
+    {% endraw %}
+  register: root_containers
+  changed_when: false
+  tags: user_for_containers
+
+- name: Fail if any containers are running as root
+  fail:
+    msg: "The following containers on host {{ ansible_hostname }} are running as root: {{ root_containers.stdout_lines }}"
+  when: root_containers.stdout != ""
+  ignore_errors: true
+  tags: user_for_containers

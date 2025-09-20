@@ -1,0 +1,2 @@
+# 4.5 Ensure Content trust for Docker is Enabled (Manual)
+enable_content_trust : true

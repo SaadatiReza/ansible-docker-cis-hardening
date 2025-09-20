@@ -1,0 +1,24 @@
+--- 
+# 4.6 Ensure that HEALTHCHECK instructions have been added to container images (Manual)
+
+- name: Check if HEALTHCHECK instruction is present in container images (CIS 4.6)
+  shell: |
+    {% raw %}
+    docker ps --format '{{.ID}} {{.Names}}' | while read id name; do
+      healthcheck=$(docker inspect --format='{{json .Config.Healthcheck}}' $id)
+      if [ "$healthcheck" = "null" ]; then
+        echo "$name"
+      fi
+    done
+    {% endraw %}
+  register: no_healthcheck_containers
+  changed_when: false
+  tags: check_healthcheck
+
+
+- name: Fail if any containers do not have HEALTHCHECK instruction
+  fail:
+    msg: "The following containers on host {{ ansible_hostname }} do not have HEALTHCHECK instruction: {{ no_healthcheck_containers.stdout_lines }}"
+  when: no_healthcheck_containers.stdout
+  ignore_errors: true
+  tags: check_healthcheck

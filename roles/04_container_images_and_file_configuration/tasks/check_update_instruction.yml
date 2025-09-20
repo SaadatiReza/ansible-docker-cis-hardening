@@ -1,0 +1,19 @@
+#4.7 Ensure update instructions are not used alone in Dockerfiles (Manual)
+- name: Check for update instructions in Dockerfiles (CIS 4.7)
+  shell: |
+    {% raw %}
+    docker images --format '{{.Repository}}:{{.Tag}} {{.ID}}' | while read image id; do
+      docker history "$id" --no-trunc --format '{{.CreatedBy}}' | grep -iE 'apt-get update|yum update|apk update' > /dev/null && echo "$image"
+    done || true
+    {% endraw %}
+  register: update_instructions
+  changed_when: false
+  ignore_errors: true
+  tags: check_update_instruction
+
+- name: Warn if any images contain update instructions
+  debug:
+    msg: "The following images on host {{ ansible_hostname }} contain update instructions: {{ update_instructions.stdout_lines }}"
+  when: update_instructions.stdout != ""
+  ignore_errors: true
+  tags: check_update_instruction
