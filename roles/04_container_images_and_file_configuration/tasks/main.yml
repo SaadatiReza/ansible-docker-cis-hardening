@@ -13,3 +13,8 @@
 - name: include check healthcheck instruction in container images CIS 4.6
   include_tasks: check_healthcheck.yml
   tags: check_healthcheck
+
+# 4.7 Ensure update instructions are not used alone in Dockerfiles (Manual)
+- name: include check update instruction in container images CIS 4.7
+  include_tasks: check_update_instruction.yml
+  tags: check_update_instruction

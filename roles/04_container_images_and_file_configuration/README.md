@@ -10,3 +10,4 @@ patches (Manual)
  [x] 4.5 Ensure Content trust for Docker is Enabled (Manual)
  [x] 4.6 Ensure that HEALTHCHECK instructions have been added to
 container images (Manual) -- this task just collect the information about containers with no HEALTHCHECK
+ [x] 4.7 Ensure update instructions are not used alone in Dockerfiles (Manual)
