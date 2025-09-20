@@ -1,4 +1,6 @@
 --- 
+# 4.6 Ensure that HEALTHCHECK instructions have been added to container images (Manual)
+
 - name: Check if HEALTHCHECK instruction is present in container images (CIS 4.6)
   shell: |
     {% raw %}

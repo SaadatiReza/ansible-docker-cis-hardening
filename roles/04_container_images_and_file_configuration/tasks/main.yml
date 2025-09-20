@@ -1,12 +1,15 @@
 ---
+# 4.1 Ensure that a user for the container has been created (Manual)
 - name: include user for containers CIS 4.1
   include_tasks: user_for_containers.yml
   tags: user_for_containers
 
+# 4.5 Ensure Content trust for Docker is Enabled (Manual)
 - name: include enable content trust for docker CIS 4.5
   include_tasks: enable_content_trust.yml
   tags: enable_content_trust
 
+# 4.6 Ensure that HEALTHCHECK instructions have been added to container images (Manual)
 - name: include check healthcheck instruction in container images CIS 4.6
   include_tasks: check_healthcheck.yml
   tags: check_healthcheck

@@ -1,4 +1,5 @@
 --- 
+# 4.5 Ensure Content trust for Docker is Enabled (Manual)
 - name: Enable content trust for docker
   ansible.builtin.lineinfile:
     path: /etc/bash.bashrc
