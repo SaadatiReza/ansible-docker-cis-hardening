@@ -1,3 +1,2 @@
-#SPDX-License-Identifier: MIT-0
----
-# defaults file for roles/04_container_images_and_file_configuration
+# 4.5 Ensure Content trust for Docker is Enabled (Manual)
+enable_content_trust : true

@@ -2,3 +2,7 @@
 - name: include user for containers CIS 4.1
   include_tasks: user_for_containers.yml
   tags: user_for_containers
+
+- name: include enable content trust for docker CIS 4.5
+  include_tasks: enable_content_trust.yml
+  tags: enable_content_trust
