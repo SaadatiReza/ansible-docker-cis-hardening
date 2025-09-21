@@ -1,4 +1,5 @@
 ---
+# 5.1 Ensure swarm mode is not Enabled, if not needed (Manual)
 - name: Include swarm mode disabled check
   include_tasks: swarm_mode_disabled.yml
   tags:
