@@ -2,4 +2,6 @@
 --- 
 - name: Include Daemon-configuration tasks
   ansible.builtin.include_tasks: daemon-configuration.yml
-  tags: daemon_configuration
+  tags: 
+   - daemon_configuration
+   - section-2

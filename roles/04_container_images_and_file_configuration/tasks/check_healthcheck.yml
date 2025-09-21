@@ -13,12 +13,17 @@
     {% endraw %}
   register: no_healthcheck_containers
   changed_when: false
-  tags: check_healthcheck
-
+  tags: 
+  - check_healthcheck
+  - container_images_and_file_configuration
+  - section-4
 
 - name: Fail if any containers do not have HEALTHCHECK instruction
   fail:
     msg: "The following containers on host {{ ansible_hostname }} do not have HEALTHCHECK instruction: {{ no_healthcheck_containers.stdout_lines }}"
   when: no_healthcheck_containers.stdout
   ignore_errors: true
-  tags: check_healthcheck
+  tags: 
+  - check_healthcheck
+  - container_images_and_file_configuration
+  - section-4

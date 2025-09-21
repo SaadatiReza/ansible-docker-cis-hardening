@@ -1,4 +1,6 @@
 ---
 - name: Include hosts configuration tasks
   ansible.builtin.include_tasks: hosts-configuration.yml
-  tags: hosts_configuration
+  tags: 
+   - hosts_configuration
+   - section-1

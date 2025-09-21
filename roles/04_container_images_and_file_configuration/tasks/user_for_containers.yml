@@ -11,11 +11,17 @@
     {% endraw %}
   register: root_containers
   changed_when: false
-  tags: user_for_containers
+  tags: 
+  - user_for_containers
+  - container_images_and_file_configuration
+  - section-4
 
 - name: Fail if any containers are running as root
   fail:
     msg: "The following containers on host {{ ansible_hostname }} are running as root: {{ root_containers.stdout_lines }}"
   when: root_containers.stdout != ""
   ignore_errors: true
-  tags: user_for_containers
+  tags: 
+  - user_for_containers
+  - container_images_and_file_configuration
+  - section-4
