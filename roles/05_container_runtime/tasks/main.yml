@@ -1,8 +1,16 @@
 ---
 # 5.1 Ensure swarm mode is not Enabled, if not needed (Manual)
-- name: Include swarm mode disabled check
+- name: Include swarm mode disabled check | CIS 5.1
   include_tasks: swarm_mode_disabled.yml
   tags:
    - container_runtime
    - check_swarm_mode
+   - section-5
+
+  #5.5 Ensure that privileged containers are not used (Manual)
+- name: Include privileged containers check | CIS 5.5
+  include_tasks: check_privileged_containers.yml
+  tags:
+   - container_runtime
+   - check_privileged_containers
    - section-5
