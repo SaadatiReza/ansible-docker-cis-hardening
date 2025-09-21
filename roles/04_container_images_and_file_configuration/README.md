@@ -11,3 +11,8 @@ patches (Manual)
  [x] 4.6 Ensure that HEALTHCHECK instructions have been added to
 container images (Manual) -- this task just collect the information about containers with no HEALTHCHECK
  [x] 4.7 Ensure update instructions are not used alone in Dockerfiles (Manual)
+ [ ] 4.8 Ensure setuid and setgid permissions are removed (Manual)
+ [x] 4.9 Ensure that COPY is used instead of ADD in Dockerfiles (Manual) --> this task is informational
+ [ ] 4.10 Ensure secrets are not stored in Dockerfiles (Manual)
+ [ ] 4.11 Ensure only verified packages are installed (Manual)
+ [ ] 4.12 Ensure all signed artifacts are validated (Manual)

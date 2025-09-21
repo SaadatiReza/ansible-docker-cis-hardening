@@ -30,3 +30,11 @@
   - check_update_instruction
   - container_images_and_file_configuration
   - section-4
+
+# 4.9 Ensure that COPY is used instead of ADD in Dockerfiles (Manual)
+- name: include check ADD instruction in container images CIS 4.9
+  include_tasks: check_add_in_dockerfile.yml
+  tags: 
+  - check_add_in_dockerfile
+  - container_images_and_file_configuration
+  - section-4
