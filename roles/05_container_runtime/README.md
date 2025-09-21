@@ -6,3 +6,4 @@
 [ ] 5.4 Ensure that Linux kernel capabilities are restricted within
 containers (Manual)
 [x] 5.5 Ensure that privileged containers are not used (Manual)
+
