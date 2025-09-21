@@ -1,0 +1,27 @@
+--- 
+- name: check if privileged containers are running | CIS 5.5
+  shell: |
+   {% raw %}
+    docker ps --filter "status=running" --format '{{.ID}} {{.Names}} {{.Image}}' | while read id name image; do
+      if docker inspect "$id" --format '{{.HostConfig.Privileged}}' | grep true > /dev/null; then
+        echo $name
+      fi
+    done
+   {% endraw %}
+  register: privileged_containers
+  changed_when: false
+  ignore_errors: true
+  tags:
+   - check_privileged_containers
+   - container_runtime
+   - section-5
+  
+- name: Warn if any privileged containers are running | CIS 5.5
+  debug:
+    msg: "The following privileged containers are running on host {{ ansible_hostname }}: {{ privileged_containers.stdout_lines }}"
+  when: privileged_containers.stdout != ""
+  ignore_errors: true
+  tags:
+   - check_privileged_containers
+   - container_runtime
+   - section-5
