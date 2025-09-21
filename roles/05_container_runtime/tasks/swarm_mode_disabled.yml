@@ -1,0 +1,17 @@
+--- 
+- name: Check if swarm mode is disabled
+  command: docker info --format '{{.Swarm.LocalNodeState}}'
+  register: swarm_mode
+  changed_when: false
+  tags: 
+   - container_runtime
+   - check_swarm_mode
+   - section-5
+  
+- name: Fail if swarm mode is not disabled
+  fail:
+    msg: "Swarm mode on host {{ ansible_hostname }} is not disabled. Current state: {{ swarm_mode.stdout }}"
+  tags: 
+   - container_runtime
+   - check_swarm_mode
+   - section-5

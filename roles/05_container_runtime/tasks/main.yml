@@ -1,3 +1,7 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for roles/05_container_runtime
+- name: Include swarm mode disabled check
+  include_tasks: swarm_mode_disabled.yml
+  tags:
+   - container_runtime
+   - check_swarm_mode
+   - section-5
