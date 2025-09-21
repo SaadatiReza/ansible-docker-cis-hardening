@@ -2,10 +2,10 @@ DOCKER_CONFIG:
 # 2.2 Ensure network traffic is restricted between containers on the default bridge (Manual) 
 docker_config:
   proxy:
-    enable: false
-    http_url: "http://127.0.0.1:8123"
-    https_url: "http://127.0.0.1:8123"
-    no_proxy_url: "docker.arvancloud.ir,127.0.0.0/8"
+    enable: true
+    http_url: "http://192.168.15.21:1080"
+    https_url: "http://192.168.15.21.1080"
+    no_proxy_url: "gitlab.stackops.ir, registry.stackops.ir,127.0.0.0/8"
 
   # 2.14 Ensure centralized and remote logging is configured (Manual)
   log_driver:
