@@ -1,0 +1,21 @@
+--- 
+- name: Check if swarm mode is disabled  | CIS 5.1
+  shell: |
+    {% raw %}
+    docker info --format '{{.Swarm.LocalNodeState}}'
+    {% endraw %}
+  register: swarm_mode
+  changed_when: false
+  tags: 
+   - container_runtime
+   - check_swarm_mode
+   - section-5
+  
+- name: Fail if swarm mode is not disabled  | CIS 5.1
+  fail:
+    msg: "Swarm mode on host {{ ansible_hostname }} is not disabled. Current state: {{ swarm_mode.stdout }}"
+  when: swarm_mode.stdout != "inactive"
+  tags: 
+   - container_runtime
+   - check_swarm_mode
+   - section-5

@@ -1,0 +1,26 @@
+#4.9 Ensure that COPY is used instead of ADD in Dockerfiles (Manual)
+--- 
+- name: Ensure that ADD is not used in Dockerfiles
+  ansible.builtin.shell: |   
+   {% raw %}
+    docker images --format '{{.Repository}}:{{.Tag}} {{.ID}}' | while read image id; do
+      docker history "$id" --no-trunc --format '{{.CreatedBy}}' | grep  "ADD" > /dev/null && echo "$image"
+    done
+    {% endraw %}
+  register: add_instructions
+  changed_when: false
+  ignore_errors: true
+  tags: 
+  - check_add_in_dockerfile
+  - container_images_and_file_configuration
+  - section-4
+
+- name: Warn if any images contain ADD instructions
+  debug:
+    msg: "The following images on host {{ ansible_hostname }} contain ADD instructions: {{ add_instructions.stdout_lines }}"
+  when: add_instructions.stdout != ""
+  ignore_errors: true
+  tags:
+  - check_add_in_dockerfile
+  - container_images_and_file_configuration
+  - section-4
