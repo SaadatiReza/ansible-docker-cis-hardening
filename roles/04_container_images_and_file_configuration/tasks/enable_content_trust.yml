@@ -6,4 +6,7 @@
     line: "export DOCKER_CONTENT_TRUST=1" 
     state: present
   when: enable_content_trust == true
-  tags: enable_content_trust
+  tags: 
+  - enable_content_trust
+  - container_images_and_file_configuration
+  - section-4

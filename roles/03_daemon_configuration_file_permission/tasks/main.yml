@@ -4,4 +4,6 @@
   loop: "{{ file_permissions }}"
   loop_control:
     loop_var: item
-  tags: file_permissions
+  tags: 
+   - file_permissions 
+   - section-3

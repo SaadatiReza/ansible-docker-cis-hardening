@@ -3,8 +3,9 @@
   ansible.builtin.stat:
     path: "{{ item.path }}"
   register: file_exists
-  tags: file_permissions
-
+  tags: 
+   - file_permissions 
+   - section-3
 - name: Set permissions of file "{{ item.path }}"
   ansible.builtin.file:
     path: "{{ item.path }}"
@@ -12,4 +13,6 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   when: file_exists.stat.exists
-  tags: file_permissions
+  tags: 
+   - file_permissions 
+   - section-3

@@ -9,11 +9,17 @@
   register: update_instructions
   changed_when: false
   ignore_errors: true
-  tags: check_update_instruction
+  tags: 
+  - check_update_instruction
+  - container_images_and_file_configuration
+  - section-4
 
 - name: Warn if any images contain update instructions
   debug:
     msg: "The following images on host {{ ansible_hostname }} contain update instructions: {{ update_instructions.stdout_lines }}"
   when: update_instructions.stdout != ""
   ignore_errors: true
-  tags: check_update_instruction
+  tags: 
+  - check_update_instruction
+  - container_images_and_file_configuration
+  - section-4

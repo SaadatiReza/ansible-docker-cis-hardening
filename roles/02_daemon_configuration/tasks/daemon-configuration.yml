@@ -3,9 +3,10 @@
   ansible.builtin.template:
     src: etc/docker/daemon.json.j2
     dest: /etc/docker/daemon.json
-  tags: daemon_configuration
   notify: Restart Docker
-
+  tags: 
+   - daemon_configuration
+   - section-2
 # - name: Debug rendered daemon.json
 #   ansible.builtin.debug:
 #     var: rendered_daemon_json.stdout
